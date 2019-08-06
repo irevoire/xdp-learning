@@ -112,7 +112,7 @@ int xdp_router_func(struct xdp_md *ctx)
 	fib_params.ifindex = ctx->ingress_ifindex;
 
 	rc = bpf_fib_lookup(ctx, &fib_params, sizeof(fib_params), 0);
-	bpf_printk("bpf fib lookup: %d", rc);
+	bpf_printk("bpf fib lookup: %d\n", rc);
 	switch (rc) {
 	case BPF_FIB_LKUP_RET_SUCCESS:         /* lookup successful */
 		if (h_proto == bpf_htons(ETH_P_IP))
